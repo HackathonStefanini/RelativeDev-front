@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="login">
+        <form [formGroup]="userCreateForm" (ngSubmit)="addUser()">
+            <div class="p-inputgroup texto">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-user"></i>
+                </span>
+                <span class="p-float-label">
+                    <input formControlName="login" (blur)="userCreateForm.get('login').markAsTouched()" type="text" pInputText>
+                    <label for="inputgroup">Username</label>
+                </span>
+            </div>
+            <small *ngIf="userCreateForm.get('login').hasError('whitespace') && userCreateForm.get('login').touched">Espaço vazio, o login é obrigatório</small>
+            <small *ngIf="userCreateForm.get('login').hasError('required') && userCreateForm.get('login').touched">Login é obrigatório</small>
+            <div class="p-inputgroup texto">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-key"></i>
+                </span>
+                <span class="p-float-label">
+                    <input formControlName="password" (blur)="userCreateForm.get('login').markAsTouched()" class="texto" type="password" pPassword />
+                    <label for="inputgroup">Password</label>
+                </span>
+            </div>
+            <small *ngIf="userCreateForm.get('password').hasError('required') && userCreateForm.get('password').touched">Senha é obrigatória</small>
+            <small *ngIf="userCreateForm.get('password').hasError('minlength') && userCreateForm.get('password').touched">Mínimo de 4 caracteres</small>
+            <small *ngIf="userCreateForm.get('password').hasError('maxlength') && userCreateForm.get('password').touched">Máximo de 10 caracteres</small>
+            <p-button (click)="logar()" [disabled]="!validators()" class="button" label="Login"></p-button>
+        </form>
+    </div>
+</div>

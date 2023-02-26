@@ -10,11 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import {MenubarModule} from 'primeng/menubar';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StefamonComponent
+    StefamonComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
